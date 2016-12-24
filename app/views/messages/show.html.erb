@@ -17,6 +17,26 @@
 
 <% end %>
 
+<h2> Message Attetion (Q7-3 Answer)</h2>
+<div id="message_likes">  
+  <p> 
+    <b>Who likes this message: </b><br>
+    <% @message.likes.each do |like| %>
+      <%= like.user.email %>, 
+    <% end %>
+  </p>
+</div>
+
+<div id="message_subscriptions">  
+  <p> 
+    <b>Who subscriptions this message: </b><br>
+    <% @message.subscriptions.each do |subscription| %>
+      <%= subscription.user.email %>, 
+    <% end %>
+  </p>
+</div>
+
+<h2> comments </h2>
 <% @message.comments.each do |comment| %>
   <div id="comments">
     <p><%= simple_format comment.content %> at <%= comment.created_at.to_s(:short) %> by <%= comment.user.display_name %>
