@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :comments
+  has_many :likes
   has_many :messages, :through => :likes, :source => :message
+  has_many :subscriptions
   has_many :messages, :through => :subscriptions, :source => :message
 
   def display_name
